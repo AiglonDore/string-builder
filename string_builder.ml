@@ -64,28 +64,6 @@ let cost strb=
   aux 0 0 strb
 ;;
 
-Random.self_init ();;
-let random_string i=
-  let generate_random_string () = 
-    let n = Random.int 1000 in
-    let rec aux acc i=if i = 0 then acc else aux (acc ^ (Char.escaped (Char.chr ((Random.int 26)+97)))) (i-1)
-    in
-    aux "" n
-  in
-  if i = 0 then
-    word (generate_random_string ())
-  else
-    let rec aux tree j=
-      if j<0 then
-        tree
-      else
-        let x = generate_random_string ()
-        in
-        aux (concat tree (word x)) (j-1)
-    in
-    aux (word "") i
-;;
-
 let rec depth strb = match strb with
   |Feuille(_,_)->0
   |Noeud(left,_,right)->1 + max (depth left) (depth right)
