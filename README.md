@@ -1,2 +1,2 @@
-# string-builder
-OCaml string builder type, with a statistical analysis at the end
+# String Builder
+OCaml string builder type.
